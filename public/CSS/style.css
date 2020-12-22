@@ -127,11 +127,42 @@ button {
     flex-direction: column;
 }
 
+.size {
+    width: 15vw;
+    height: 15vw;
+    margin: 0.7em;
+}
+
 .thumbnail {
     background: #000000;
     height: 100%;
     width: 100%;
     margin: 0.1em;
+}
+
+.content {
+    width: 98vw;
+    height: 70wh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.left {
+    width: 30%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.right {
+    width: 65%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 @media only screen and (max-device-width: 420px) {
