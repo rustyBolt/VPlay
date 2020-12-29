@@ -9,10 +9,18 @@
             placeholder
         </div>
         <div class="credentials">
-            <form>
+            <form action="login", method="POST">
+                <div class="message">
+                    <?php if(isset($messages)){
+                        foreach($messages as $message){
+                            echo $message;
+                        }
+                    }
+                    ?>
+                </div>
                 <input name="email" type="text" placeholder="email">
                 <input name="password" type="password" placeholder="password">
-                <button>Login</button>
+                <button type="submit">Login</button>
                 <div class="or">OR</div>
                 <button>Create an account</button>
             </form>
