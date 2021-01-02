@@ -44,6 +44,13 @@ input {
     color: #FEFDFD;
 }
 
+.no-valid {
+    border: 8px solid red;
+    border-radius: 1em;
+    box-shadow: 0 0 0.2em red;
+    outline: none;
+}
+
 textarea {
     background: #C4C4C4;
     width: 50%;
