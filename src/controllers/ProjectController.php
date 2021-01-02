@@ -46,4 +46,9 @@ class ProjectController extends AppController{
         }
         return true;
     }
+
+    public function hub(){
+        $projects = $this->projectRepository->getProjects();
+        $this->render('hub', ['projects' => $projects]);
+    }
 }

@@ -35,18 +35,15 @@
             </div>
             <div class="underline"></div>
             <div class="header">
-                <div class="thumbnail">
-                    <div class="title">Sample</div>
-                </div>
-                <div class="thumbnail">
-                    <div class="title">Sample</div>
-                </div>
-                <div class="thumbnail">
-                    <div class="title">Sample</div>
-                </div>
-                <div class="thumbnail">
-                    <div class="title">Sample</div>
-                </div>
+            <?php foreach($projects as $project): ?>
+                    <div id="project-1">
+                        <img src="public/uploads/<?= $project->getImage(); ?>">
+                        <div>
+                            <h2><?= $project->getTitle(); ?></h2>
+                            <p><?= $project->getDescription(); ?></p>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
             </div>
         </div>
     </div>
