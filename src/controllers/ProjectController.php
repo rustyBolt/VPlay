@@ -1,6 +1,8 @@
 <?php
 
 require_once 'AppController.php';
+require_once __DIR__ .'/../models/Project.php';
+require_once __DIR__.'/../repository/ProjectRepository.php';
 
 class ProjectController extends AppController{
     const MAX_FILE_SIZE = 1024*1024;
@@ -8,6 +10,13 @@ class ProjectController extends AppController{
     const UPLOAD_DIRECTORY = '/../public/uploads/';
 
     private $message = [];
+    private $projectRepository;
+
+    public function __construct()
+    {
+        parent::__construct();
+        $this->projectRepository = new ProjectRepository();
+    }
 
     public function addfile()
     {   
@@ -17,8 +26,9 @@ class ProjectController extends AppController{
                 dirname(__DIR__).self::UPLOAD_DIRECTORY.$_FILES['file']['name']
             );
 
-            // TODO create new project object and save it in database
             $this->message[] = 'Succesfuly added file.';
+            $project = new Project($_POST['title'], $_POST['description'], $_FILES['file']['name']);
+            $this->projectRepository->addProject($project);
         }
         return $this->render('addfile', ['messages' => $this->message]);
     }
