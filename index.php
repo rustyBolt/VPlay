@@ -10,4 +10,5 @@ Routing::get("hub", "ProjectController");
 Routing::post("login", "SecurityController");
 Routing::post("createAccount", "SecurityController");
 Routing::post("addfile", "ProjectController");
+Routing::post("search", "ProjectController");
 Routing::run($path);

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <head>
-    <link rel="stylesheet" type="text/css" href="public/CSS/style.css">
+    <link rel="stylesheet" type="text/css" href="./public/CSS/style.css">
+    <script type="text/javascript" src="./public/js/search.js" defer></script>
     <title>VPlay</title>
 </head>
 <body>
@@ -34,8 +35,8 @@
                 <button class="arrowRight"></button>
             </div>
             <div class="underline"></div>
-            <div class="header">
-            <?php foreach($projects as $project): ?>
+            <div class="c">
+                <?php foreach($projects as $project): ?>
                     <div id="project-1">
                         <img src="public/uploads/<?= $project->getImage(); ?>">
                         <div>
@@ -48,3 +49,13 @@
         </div>
     </div>
 </body>
+
+<template id="project-template">
+    <div id="">
+        <img src="">
+        <div>
+            <h2>title</h2>
+            <p>description</p>
+        </div>
+    </div>
+</template>
