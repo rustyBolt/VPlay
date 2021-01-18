@@ -38,6 +38,15 @@ class ProjectController extends AppController{
         $this->render('hub', ['projects' => $projects]);
     }
 
+    public function homepage(){
+        $projects = $this->projectRepository->getProjects();
+        $this->render('homepage', ['projects' => $projects]);
+    }
+
+    public function login() {
+        $this->render('login');
+    }
+
     public function search(){
         $contentType = isset($_SERVER["CONTENT_TYPE"]) ? trim($_SERVER["CONTENT_TYPE"]) : '';
 
