@@ -29,4 +29,23 @@ class UserRepository extends Repository
             $user['surname']
         );
     }
+
+    public function addUser(string $email, string $password, string $name, string $surname)
+    {
+        $stmt = $this->database->connect()->prepare('
+            INSERT INTO public.users_details (name, surname) VALUES (:name, :surname)
+        ');
+        $stmt->bindParam(':name', $name, PDO::PARAM_STR);
+        $stmt->bindParam(':surname', $surname, PDO::PARAM_STR);
+        $stmt->execute();
+        
+        $stmt = $this->database->connect()->prepare('
+            INSERT INTO public.users (email, password, id_user_details) VALUES
+            (:email, :password, (SELECT id from public.users_details WHERE name = :name))
+        ');
+        $stmt->bindParam(':name', $name, PDO::PARAM_STR);
+        $stmt->bindParam(':email', $email, PDO::PARAM_STR);
+        $stmt->bindParam(':password', $password, PDO::PARAM_STR);
+        $stmt->execute();
+    }
 }

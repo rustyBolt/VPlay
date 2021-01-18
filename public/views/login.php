@@ -22,7 +22,9 @@
                 <input name="password" type="password" placeholder="password">
                 <button type="submit">Login</button>
                 <div class="or">OR</div>
-                <button>Create an account</button>
+            </form>
+            <form action="createAccount">
+                <button action="createAccount">Create an account</button>
             </form>
         </div>
     </div>

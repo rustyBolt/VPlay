@@ -25,7 +25,7 @@
                 <input name="passwordagain" type="password" placeholder="repeat password">
                 <input name="name" type="text" placeholder="name">
                 <input name="surname" type="text" placeholder="surname">
-                <button>Create an account</button>
+                <button type="submit">Create an account</button>
             </form>
         </div>
     </div>
