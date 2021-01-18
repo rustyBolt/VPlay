@@ -34,8 +34,15 @@ class ProjectController extends AppController{
     }
     
     public function hub(){
-        $projects = $this->projectRepository->getProjects();
-        $this->render('hub', ['projects' => $projects]);
+        session_start();
+
+        if (isset($_SESSION["id"])){
+            $projects = $this->projectRepository->getProjects();
+            $this->render('hub', ['projects' => $projects]);
+        }
+        else {
+            echo "Nie jesteś zalogowany!";
+        }
     }
 
     public function homepage(){
@@ -45,6 +52,15 @@ class ProjectController extends AppController{
 
     public function login() {
         $this->render('login');
+    }
+
+    public function logout() {
+        session_start();
+        session_unset();
+        session_destroy();
+
+        $url = "http://$_SERVER[HTTP_HOST]";
+        header("Location: {$url}/login");
     }
 
     public function search(){

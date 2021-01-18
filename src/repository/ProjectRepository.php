@@ -35,9 +35,14 @@ class ProjectRepository extends Repository
             VALUES (?, ?, ?, ?, ?)
         ');
 
-        //TODO you should get this value from logged user session
-        $assignedById = 1;
-
+        session_start();
+        
+        if (isset($_SESSION["id"])){
+            $assignedById = $_SESSION["id"];   
+        }
+        else {
+            $assignedById = 1;
+        }
         $stmt->execute([
             $project->getTitle(),
             $project->getDescription(),

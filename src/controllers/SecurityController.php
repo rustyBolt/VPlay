@@ -29,6 +29,12 @@ class SecurityController extends AppController{
             return $this->render('login', ['messages' => ['Wrong password!']]);
         }
 
+        session_start();
+
+        $id = $userRepository->getID($email);
+
+        $_SESSION["id"] = $id["id"];
+
         $url = "http://$_SERVER[HTTP_HOST]";
         header("Location: {$url}/hub");
     }
@@ -45,27 +51,27 @@ class SecurityController extends AppController{
         $userRepository = new UserRepository();
 
         if($password !== $passwordagain) {
-            return $this->render('createAccount'. ['messages' => ["Passwords don't match!"]]);
+            return $this->render('createAccount', ['messages' => ["Passwords don't match!"]]);
         }
 
         if(!$password) {
-            return $this->render('createAccount'. ['messages' => ["Missing password!"]]);
+            return $this->render('createAccount', ['messages' => ["Missing password!"]]);
         }
 
         if(!$passwordagain) {
-            return $this->render('createAccount'. ['messages' => ["Didn't repeat password!"]]);
+            return $this->render('createAccount', ['messages' => ["Didn't repeat password!"]]);
         }
 
         if(!$email) {
-            return $this->render('createAccount'. ['messages' => ["Missing email!"]]);
+            return $this->render('createAccount', ['messages' => ["Missing email!"]]);
         }
 
         if(!$name) {
-            return $this->render('createAccount'. ['messages' => ["Missing name!"]]);
+            return $this->render('createAccount', ['messages' => ["Missing name!"]]);
         }
 
         if(!$surname) {
-            return $this->render('createAccount'. ['messages' => ["Missing surname!"]]);
+            return $this->render('createAccount', ['messages' => ["Missing surname!"]]);
         }
 
         $userRepository->addUser($email, $password, $name, $surname);

@@ -10,6 +10,7 @@ Routing::get("hub", "ProjectController");
 Routing::post("login", "SecurityController");
 Routing::post("createAccount", "SecurityController");
 Routing::post("addfile", "ProjectController");
+Routing::post("logout", "ProjectController");
 Routing::post("search", "ProjectController");
 Routing::post("homepage", "ProjectController");
 Routing::run($path);
