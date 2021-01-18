@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <head>
     <link rel="stylesheet" type="text/css" href="public/CSS/style.css">
+    <link rel="stylesheet" type="text/css" href="css/fontello.css">
     <script type="text/javascript" src="./public/js/search.js" defer></script>
     <title>VPlay</title>
 </head>
@@ -11,7 +12,9 @@
                 <div class="homeLogo"></div>
                 <input class="search" name="search" type="text" placeholder="search">
                 <form action="login">
-                    <button>Login</button>
+                    <button>
+                        <i class="icon-login"></i>
+                    </button>
                 </form>
             </div>
             <div class="underline"></div>
