@@ -9,7 +9,9 @@
     <div class="container2">
         <div class="vertical">
             <div class="header">
-                <div class="homeLogo"></div>
+                <div class="homeLogo">
+                    <img class="fit" src="public/img/logo.svg">
+                </div>
                 <input class="search" name="search" type="text" placeholder="search">
                 <?php session_start()?>
                 <?php if(isset($_SESSION["id"])): ?>

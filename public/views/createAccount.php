@@ -7,7 +7,7 @@
 <body>
     <div class="container">
         <div class="logo">
-            placeholder
+            <img class="fit2" src="public/img/logo.svg">
         </div>
         <div class="credentials">
             <form action="createAccount" method="POST">
