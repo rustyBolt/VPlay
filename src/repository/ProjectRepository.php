@@ -52,15 +52,16 @@ class ProjectRepository extends Repository
         ]);
     }
 
-    public function getProjects(): array
+    public function getProjects(int $id = 0): array
     {
         $result = [];
 
-        $stmt = $this->database->connect()->prepare('
-            SELECT * FROM projects;
-        ');
-        $stmt->execute();
-        $projects = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        if ($id == 0) {
+            $projects = $this->getAll();
+        }
+        else {
+            $projects = $this->getById($id);
+        }
 
          foreach ($projects as $project) {
              $result[] = new Project(
@@ -83,6 +84,25 @@ class ProjectRepository extends Repository
         $stmt->bindParam(':search', $searchString, PDO::PARAM_STR);
         $stmt->execute();
 
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    private function getAll() {
+        $stmt = $this->database->connect()->prepare('
+            SELECT * FROM projects;
+        ');
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    private function getById(int $id) {
+        $stmt = $this->database->connect()->prepare('
+            SELECT * FROM projects WHERE projects.id_assigned_by = :id;
+        ');
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+        
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 }

@@ -37,7 +37,7 @@ class ProjectController extends AppController{
         session_start();
 
         if (isset($_SESSION["id"])){
-            $projects = $this->projectRepository->getProjects();
+            $projects = $this->projectRepository->getProjects($_SESSION["id"]);
             $this->render('hub', ['projects' => $projects]);
         }
         else {

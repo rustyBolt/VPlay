@@ -18,6 +18,11 @@
                             <i class="icon-logout"></i>
                         </button>
                     </form>
+                    <form action="hub">
+                        <button>
+                            HUB
+                        </button>
+                    </form>
                 <?php else: ?>
                     <form action="login">
                         <button>
