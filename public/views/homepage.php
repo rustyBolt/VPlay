@@ -11,11 +11,20 @@
             <div class="header">
                 <div class="homeLogo"></div>
                 <input class="search" name="search" type="text" placeholder="search">
-                <form action="login">
-                    <button>
-                        <i class="icon-login"></i>
-                    </button>
-                </form>
+                <?php session_start()?>
+                <?php if(isset($_SESSION["id"])): ?>
+                    <form action="logout">
+                        <button>
+                            <i class="icon-logout"></i>
+                        </button>
+                    </form>
+                <?php else: ?>
+                    <form action="login">
+                        <button>
+                            <i class="icon-login"></i>
+                        </button>
+                    </form>
+                <?php endif; ?>
             </div>
             <div class="underline"></div>
         </div>
