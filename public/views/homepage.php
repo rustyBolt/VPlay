@@ -21,9 +21,7 @@
         </div>
         <div class="vertical2">
             <div class="header2">
-                <div class="sectitle">Best rated</div>
-                <button class="arrowLeft"></button>
-                <button class="arrowRight"></button>
+                <div class="sectitle">Featured</div>
             </div>
             <div class="underline"></div>
             <div class="c">
@@ -38,29 +36,6 @@
                 <?php endforeach; ?>
             </div>
         </div>
-        <div class="vertical2">
-            <div class="header2">
-                <div class="sectitle">Best rated</div>
-                <button class="arrowLeft"></button>
-                <button class="arrowRight"></button>
-            </div>
-            <div class="underline"></div>
-            <div class="header">
-                <div class="thumbnail">
-                    <div class="title">Sample</div>
-                </div>
-                <div class="thumbnail">
-                    <div class="title">Sample</div>
-                </div>
-                <div class="thumbnail">
-                    <div class="title">Sample</div>
-                </div>
-                <div class="thumbnail">
-                    <div class="title">Sample</div>
-                </div>
-            </div>
-        </div>
-    </div>
 </body>
 
 <template id="project-template">

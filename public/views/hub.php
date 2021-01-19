@@ -22,22 +22,9 @@
         <div class="vertical2">
             <div class="header2">
                 <div class="sectitle">Created</div>
-                <button class="arrowLeft"></button>
-                <button class="arrowRight"></button>
-            </div>
-            <div class="underline"></div>
-            <div class="header">
-                <div class="thumbnail">
-                    <div class="title">Sample</div>
-                </div>
-                <button>Create</button>
-            </div>
-        </div>
-        <div class="vertical2">
-            <div class="header2">
-                <div class="sectitle">Liked</div>
-                <button class="arrowLeft"></button>
-                <button class="arrowRight"></button>
+                <form>
+                    <button class="create">+create</button>
+                </form>
             </div>
             <div class="underline"></div>
             <div class="c">
