@@ -24,7 +24,7 @@
         <div class="vertical2">
             <div class="header2">
                 <div class="sectitle">Created</div>
-                <form>
+                <form action="addfile">
                     <button class="create">+create</button>
                 </form>
             </div>

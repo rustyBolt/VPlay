@@ -6,7 +6,7 @@
 <body>
     <div class="container">
         <div class="logo">
-            placeholder
+            <img class="fit2" src="public/img/logo.svg">
         </div>
         <div class="credentials">
                 <form action="addfile" method="POST" ENCTYPE="multipart/form-data">
@@ -24,7 +24,7 @@
                     <textarea name="description" rows=5 placeholder="description"></textarea>
 
                     <input type="file" name="file"/><br/>
-                    <button type="submit">send</button>
+                    <button type="submit">create</button>
                 </form>
         </div>
     </div>

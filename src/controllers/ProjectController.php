@@ -20,17 +20,30 @@ class ProjectController extends AppController{
 
     public function addfile()
     {   
-        if ($this->isPost() && is_uploaded_file($_FILES['file']['tmp_name']) && $this->validate($_FILES['file'])) {
-            move_uploaded_file(
-                $_FILES['file']['tmp_name'], 
-                dirname(__DIR__).self::UPLOAD_DIRECTORY.$_FILES['file']['name']
-            );
+        session_start();
+        if (isset($_SESSION["id"])) {
+            if ($this->isPost() && is_uploaded_file($_FILES['file']['tmp_name']) && $this->validate($_FILES['file'])) {
+                move_uploaded_file(
+                    $_FILES['file']['tmp_name'], 
+                    dirname(__DIR__).self::UPLOAD_DIRECTORY.$_FILES['file']['name']
+                );
 
-            $this->message[] = 'Succesfuly added file.';
-            $project = new Project($_POST['title'], $_POST['description'], $_FILES['file']['name']);
-            $this->projectRepository->addProject($project);
+                $project = new Project($_POST['title'], $_POST['description'], $_FILES['file']['name']);
+                $this->projectRepository->addProject($project);
+
+                mkdir("public/uploads/".$_POST['title']);
+
+                return $this->render('create', ['title' => $project->getTitle()]);
+            }
+            return $this->render('addfile', ['messages' => $this->message]);
         }
-        return $this->render('addfile', ['messages' => $this->message]);
+        else {
+            echo "Nie jesteś zalogowany.";
+        }
+    }
+
+    public function create() {
+        return $this->render('create', ['title' => "New Story"]);
     }
     
     public function hub(){
@@ -74,6 +87,20 @@ class ProjectController extends AppController{
             http_response_code(200);
 
             echo json_encode($this->projectRepository->getProjectByTitle($decoded['search']));
+        }
+    }
+
+    public function appendFile()
+    {
+        if ($this->isPost() && is_uploaded_file($_FILES['file']['tmp_name']) && $this->validate($_FILES['file'])) {
+            move_uploaded_file(
+                $_FILES['file']['tmp_name'], 
+                dirname(__DIR__).self::UPLOAD_DIRECTORY.$_POST['title'].'/'.$_FILES['file']['name']
+            );
+            echo $_FILES['file']['name'];
+        }
+        else{
+            echo 'naf';
         }
     }
 

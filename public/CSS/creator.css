@@ -1,0 +1,57 @@
+.workbench {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.tools {
+    width: 30%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.area {
+    width: 50%;
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+    background-color: crimson;
+}
+
+.people {
+    width: 100%;
+    height: 60%;
+    display: flex;
+    flex-direction: row;
+}
+
+.lp {
+    width: 30%;
+    height: 100%;
+    align-self: left;
+    background-color: cyan;
+}
+
+.separator {
+    width: 40%;
+    height: 100%;
+}
+
+.rp {
+    width: 30%;
+    height: 100%;
+    align-self: right;
+    background-color: darkblue;
+}
+
+.conversation {
+    width: 100%;
+    height: 40%;
+    background-color: darkgoldenrod;
+}

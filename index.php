@@ -6,11 +6,14 @@ $path = trim($_SERVER['REQUEST_URI'], "/");
 $path = parse_url($path, PHP_URL_PATH);
 
 Routing::get("", "ProjectController");
-Routing::get("hub", "ProjectController");
-Routing::post("login", "SecurityController");
-Routing::post("createAccount", "SecurityController");
 Routing::post("addfile", "ProjectController");
 Routing::post("logout", "ProjectController");
 Routing::post("search", "ProjectController");
+Routing::post("appendFile", "ProjectController");
 Routing::post("homepage", "ProjectController");
+Routing::get("hub", "ProjectController");
+Routing::get("create", "ProjectController");
+Routing::post("login", "SecurityController");
+Routing::post("createAccount", "SecurityController");
+
 Routing::run($path);
