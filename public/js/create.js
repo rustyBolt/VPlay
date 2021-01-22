@@ -37,4 +37,13 @@ function addFile(title, component) {
 
 function addText() {
     let text = document.querySelector('textarea[name="text"]');
+    let conversation = document.querySelector('.conversation');
+
+    let helper = text.value.split("\\");
+
+    if (helper[1] === undefined) {
+        helper[1] = "";
+    }
+
+    conversation.innerHTML = helper[0] + "</br>" + helper[1];
 }
