@@ -12,7 +12,8 @@
             <button onclick="addFile('<?php echo $title; ?>', 'area')">Background</button>
             <button onclick="addFile('<?php echo $title; ?>', 'lp')">LeftSpeaker</button>
             <button onclick="addFile('<?php echo $title; ?>', 'rp')">RightSpeaker</button>
-            <button>Text</button>
+            <textarea name="text" rows="6" cols="20"></textarea>
+            <button onclick="addText()">Text</button>
             <button>AddScene</button>
         </div>
         <div class="area">
