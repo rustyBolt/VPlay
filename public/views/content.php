@@ -23,7 +23,7 @@
                     <button>PLAY</button>
                 </div>
                 <div class="right">
-                    <div class="title">Title</div>
+                    <div class="title"><?php echo $_GET['title']; ?></div>
                     <div class="underline"></div>
                     <div class="description">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.

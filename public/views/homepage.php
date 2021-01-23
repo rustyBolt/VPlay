@@ -3,6 +3,7 @@
     <link rel="stylesheet" type="text/css" href="public/CSS/style.css">
     <link rel="stylesheet" type="text/css" href="css/fontello.css">
     <script type="text/javascript" src="./public/js/search.js" defer></script>
+    <script type="text/javascript" src="./public/js/move.js" defer></script>
     <title>VPlay</title>
 </head>
 <body>
@@ -42,7 +43,7 @@
             <div class="underline"></div>
             <div class="c">
                 <?php foreach($projects as $project): ?>
-                    <div id="project-1">
+                    <div id="project-1" onclick="move('<?= $project->getTitle(); ?>')">
                         <img src="public/uploads/<?= $project->getImage(); ?>">
                         <div>
                             <h2><?= $project->getTitle(); ?></h2>
@@ -55,7 +56,7 @@
 </body>
 
 <template id="project-template">
-    <div id="">
+    <div id="" onclick="">
         <img src="">
         <div>
             <h2>title</h2>

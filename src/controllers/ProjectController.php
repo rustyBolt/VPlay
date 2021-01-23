@@ -76,6 +76,11 @@ class ProjectController extends AppController{
         header("Location: {$url}/login");
     }
 
+    public function content() 
+    {
+        $this->render('content');
+    }
+
     public function search(){
         $contentType = isset($_SERVER["CONTENT_TYPE"]) ? trim($_SERVER["CONTENT_TYPE"]) : '';
 

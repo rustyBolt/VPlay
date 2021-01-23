@@ -13,6 +13,7 @@ Routing::post("appendFile", "ProjectController");
 Routing::post("addGame", "ProjectController");
 Routing::post("homepage", "ProjectController");
 Routing::get("hub", "ProjectController");
+Routing::get("content", "ProjectController");
 Routing::get("create", "ProjectController");
 Routing::post("login", "SecurityController");
 Routing::post("createAccount", "SecurityController");

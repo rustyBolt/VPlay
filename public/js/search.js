@@ -35,6 +35,7 @@ function createProject(project) {
     const clone = template.content.cloneNode(true);
     const div = clone.querySelector("div");
     div.id = project.id;
+    div.setAttribute("onclick", "move('" + project.title + "')");
     const image = clone.querySelector("img");
     image.src = `/public/uploads/${project.image}`;
     const title = clone.querySelector("h2");
