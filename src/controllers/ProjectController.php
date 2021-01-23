@@ -104,6 +104,12 @@ class ProjectController extends AppController{
         }
     }
 
+    public function addGame()
+    {
+        $json = json_encode($_POST['game']);
+        file_put_contents(dirname(__DIR__).self::UPLOAD_DIRECTORY.$_POST['title'].'/'.'game.json', $json);
+    }
+
     private function validate(array $file): bool
     {
         if ($file['size'] > self::MAX_FILE_SIZE) {

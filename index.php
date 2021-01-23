@@ -10,6 +10,7 @@ Routing::post("addfile", "ProjectController");
 Routing::post("logout", "ProjectController");
 Routing::post("search", "ProjectController");
 Routing::post("appendFile", "ProjectController");
+Routing::post("addGame", "ProjectController");
 Routing::post("homepage", "ProjectController");
 Routing::get("hub", "ProjectController");
 Routing::get("create", "ProjectController");

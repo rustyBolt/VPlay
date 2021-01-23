@@ -10,11 +10,12 @@
         <div class="tools">
             <input name="file" type="file"/>
             <button onclick="addFile('<?php echo $title; ?>', 'area')">Background</button>
-            <button onclick="addFile('<?php echo $title; ?>', 'lp')">LeftSpeaker</button>
-            <button onclick="addFile('<?php echo $title; ?>', 'rp')">RightSpeaker</button>
+            <button onclick="addFile('<?php echo $title; ?>', 'lp')">Left Speaker</button>
+            <button onclick="addFile('<?php echo $title; ?>', 'rp')">Right Speaker</button>
             <textarea name="text" rows="6" cols="20"></textarea>
             <button onclick="addText()">Text</button>
-            <button>AddScene</button>
+            <button onclick="addScene()">Add Scene</button>
+            <button onclick="addGame('<?php echo $title; ?>')">Add Game</button>
         </div>
         <div class="area">
             <div class="people">

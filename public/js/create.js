@@ -1,7 +1,6 @@
 function addFile(title, component) {
     let file = document.querySelector('input[name="file"]');
     let data = new FormData();
-    console.log(file);
     data.append('file', file.files[0]);
     data.append('title', title);
 
@@ -29,6 +28,9 @@ function addFile(title, component) {
         }
         else {
             console.log("nie udało się");
+            let change = document.querySelector('.' + component);
+            change.style.background = "";
+            change.style.backgroundSize = "";
         }
     });
     
@@ -46,4 +48,42 @@ function addText() {
     }
 
     conversation.innerHTML = helper[0] + "</br>" + helper[1];
+}
+
+let game = {};
+let frame = 1;
+
+function addScene() {
+    let area = document.querySelector('.area');
+    let left = document.querySelector('.lp');
+    let right = document.querySelector('.rp');
+    let text = document.querySelector('.conversation');
+
+    let scene = {"area": {"content": area.style.background,
+                            "size": area.style.backgroundSize},
+                "lp": {"content": left.style.background,
+                            "size": left.style.backgroundSize},
+                "rp": {"content": right.style.background,
+                            "size": right.style.backgroundSize},
+                "conversation": text.innerHTML};
+
+    game["frame" + frame] = scene;
+    frame += 1;
+    console.log(game);
+    console.log(frame);
+}
+
+function addGame(title){
+    let data = new FormData();
+    data.append('game', JSON.stringify(game));
+    data.append('title', title);
+
+    fetch("/addGame", {
+        method: "POST",
+        body: data
+    }).then(function (response) {
+        return response.text();
+    }).then(function (response) {
+        console.log(response);
+    }).then(()=>window.location.href = "http://localhost:8080/hub");
 }
