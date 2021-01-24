@@ -46,3 +46,9 @@
     height: 40%;
     word-wrap: break-word;
 }
+
+@media only screen and (max-device-width: 420px) {
+    .area{
+        width: 65%;
+    }
+}
