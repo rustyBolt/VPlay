@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <head>
     <link rel="stylesheet" type="text/css" href="public/CSS/style.css">
+    <link rel="stylesheet" type="text/css" href="public/CSS/play.css">
+    <link rel="stylesheet" type="text/css" href="css/fontello.css">
+    <script type="text/javascript" src="./public/js/play.js" defer></script>
     <title>VPlay</title>
 </head>
 <body>
@@ -10,28 +13,38 @@
                 <div class="homeLogo">
                     <img class="fit" src="public/img/logo.svg">
                 </div>
-                <input class="search" name="search" type="text" placeholder="search">
-                <div class="login"></div>
+                <?php if(isset($_SESSION["id"])): ?>
+                    <form action="logout">
+                        <button>
+                            <i class="icon-logout"></i>
+                        </button>
+                    </form>
+                    <form action="hub">
+                        <button>
+                            HUB
+                        </button>
+                    </form>
+                <?php else: ?>
+                    <form action="login">
+                        <button>
+                            <i class="icon-login"></i>
+                        </button>
+                    </form>
+                <?php endif; ?>
             </div>
             <div class="underline"></div>
         </div>
-        <div class="content">
-                <div class="left">
-                    <div class="size">
-                        <div class="thumbnail"></div>
-                    </div>
-                    <button>PLAY</button>
+        <div class="play">
+            <div class="title"><?php echo $_GET['title']; ?></div>
+            <button name="play" onclick="loadJSON('./public/uploads/<?php echo $_GET['title']; ?>/game.json')">PLAY</button>
+            <div class="area">
+                <div class="people">
+                    <div class="lp"></div>
+                    <div class="separator"></div>
+                    <div class="rp"></div>
                 </div>
-                <div class="right">
-                    <div class="title"><?php echo $_GET['title']; ?></div>
-                    <div class="underline"></div>
-                    <div class="description">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                         Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-                         Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-                         Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    </div>
-                </div>
+                <div class="conversation"></div>
+            </div>
         </div>
     </div>
 </body>
