@@ -13,6 +13,7 @@
                 <div class="homeLogo">
                     <img class="fit" src="public/img/logo.svg">
                 </div>
+                <?php session_start()?>
                 <?php if(isset($_SESSION["id"])): ?>
                     <form action="logout">
                         <button>
