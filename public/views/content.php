@@ -11,7 +11,9 @@
         <div class="vertical">
             <div class="header">
                 <div class="homeLogo">
-                    <img class="fit" src="public/img/logo.svg">
+                    <a href="http://localhost:8080" target="blank">
+                        <img class="fit" src="public/img/logo.svg">
+                    </a>
                 </div>
                 <?php session_start()?>
                 <?php if(isset($_SESSION["id"])): ?>

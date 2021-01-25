@@ -7,7 +7,9 @@
 <body>
     <div class="container">
         <div class="logo">
-            <img class="fit2" src="public/img/logo.svg">
+            <a href="http://localhost:8080" target="blank">
+                <img class="fit2" src="public/img/logo.svg">
+            </a>
         </div>
         <div class="credentials">
             <form action="createAccount" method="POST">
