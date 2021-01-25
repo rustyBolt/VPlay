@@ -15,6 +15,7 @@
                         <img class="fit" src="public/img/logo.svg">
                     </a>
                 </div>
+                <div class="space"></div>
                 <input class="search" name="search" type="text" placeholder="search">
                 <form action="logout">
                     <button>

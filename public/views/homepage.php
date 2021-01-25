@@ -13,6 +13,7 @@
                 <div class="homeLogo">
                     <img class="fit" src="public/img/logo.svg">
                 </div>
+                <div class="space"></div>
                 <input class="search" name="search" type="text" placeholder="search">
                 <?php session_start()?>
                 <?php if(isset($_SESSION["id"])): ?>

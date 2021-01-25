@@ -47,8 +47,16 @@
     word-wrap: break-word;
 }
 
+.space2 {
+    width: 80vw;
+}
+
 @media only screen and (max-device-width: 420px) {
     .area{
         width: 65%;
+    }
+
+    .space2 {
+        width: 30vw;
     }
 }
