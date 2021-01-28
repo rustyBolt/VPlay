@@ -13,7 +13,7 @@ class SecurityController extends AppController{
         }
 
         $email = $_POST['email'];
-        $password = $_POST['password'];
+        $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
 
         $user = $userRepository->getUser($email);
 
@@ -25,7 +25,7 @@ class SecurityController extends AppController{
             return $this->render('login', ['messages' => ['User with this email not exist!']]);
         }
 
-        if ($user->getPassword() !== $password) {
+        if (password_verify($password, $user->getPassword())) {
             return $this->render('login', ['messages' => ['Wrong password!']]);
         }
 
@@ -74,7 +74,7 @@ class SecurityController extends AppController{
             return $this->render('createAccount', ['messages' => ["Missing surname!"]]);
         }
 
-        $userRepository->addUser($email, $password, $name, $surname);
+        $userRepository->addUser($email, password_hash($password, PASSWORD_BCRYPT), $name, $surname);
 
         $url = "http://$_SERVER[HTTP_HOST]";
         header("Location: {$url}/login");
